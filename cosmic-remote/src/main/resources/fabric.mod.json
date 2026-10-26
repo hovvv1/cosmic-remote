@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "cosmic_remote",
+  "version": "1.0.0",
+  "name": "Cosmic Remote",
+  "description": "Une télécommande cosmique : SA-03 Singularity (trou noir), SA-04 Perseid (météorite), SA-05 Helios (soleil), SA-06 Nova (supernova). Mod indépendant, sans dépendance à The Shooting Star.",
+  "authors": ["toi"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.cosmic.remote.CosmicRemote"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
