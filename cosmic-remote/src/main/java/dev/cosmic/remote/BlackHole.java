@@ -8,7 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ItemEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -120,7 +120,7 @@ public final class BlackHole extends Effect {
             // un peu de rotation autour du trou pour l'effet "tourbillon"
             Vec3 swirl = new Vec3(-d.z, 0, d.x).normalize().scale(strength * 0.35);
             e.setDeltaMovement(e.getDeltaMovement().scale(0.8).add(v).add(swirl));
-            e.hurtMarked = true;
+            sync(e);
             if (item && dist < coreR * 1.5) e.discard();
             if (e instanceof LivingEntity le && dist < coreR * 3.0 && t % 8 == 0) {
                 hurt(le, DamageTypes.MAGIC, dmg(4));
