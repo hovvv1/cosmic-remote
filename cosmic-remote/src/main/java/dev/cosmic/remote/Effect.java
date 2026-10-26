@@ -109,6 +109,12 @@ public abstract class Effect {
         if (d.lengthSqr() < 1.0E-4) d = new Vec3(0, 1, 0);
         d = d.normalize().scale(strength);
         e.setDeltaMovement(e.getDeltaMovement().add(d.x, d.y + lift, d.z));
-        e.hurtMarked = true;
+        sync(e);
+    }
+
+    protected void sync(Entity e) {
+        if (e instanceof ServerPlayer sp) {
+            sp.connection.send(new net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket(sp));
+        }
     }
 }
